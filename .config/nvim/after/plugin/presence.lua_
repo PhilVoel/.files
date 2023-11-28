@@ -1,0 +1,12 @@
+require("presence").setup{
+	neovim_image_text 	= "<3 VSCode <3 Emacs <3 RIP Atom <3 notepad.exe <3",
+	main_image		 	= "file",
+	buttons				= function (buffer, repo_url)
+		if repo_url then
+			return {{
+				label = "View on GitHub",
+				url = repo_url,
+			}}
+		end
+	end,
+}
