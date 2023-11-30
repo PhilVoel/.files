@@ -56,6 +56,7 @@
 p = "job:clippy_pedantic"
 u = "job:clippy_unwrap"
 e = "job:clippy_expect"
+shift-r = "job:clippy_release_ready"
 
 [jobs.clippy_pedantic]
 command = ["cargo", "clippy", "--color", "always", "--", "-W", "clippy::pedantic"]
@@ -65,3 +66,6 @@ command = ["cargo", "clippy", "--color", "always", "--", "-W", "clippy::unwrap_u
 
 [jobs.clippy_unwrap]
 command = ["cargo", "clippy", "--color", "always", "--", "-W", "clippy::unwrap_used"]
+
+[jobs.clippy_release_ready]
+command = ["cargo", "clippy", "--color", "always", "--", "-W", "clippy::unwrap_used", "-W", "clippy::todo"]
