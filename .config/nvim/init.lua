@@ -1,13 +1,14 @@
 -- Vim options
 vim.g.mapleader = " "
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.undofile = true
-vim.o.termguicolors = true
+vim.opt.guicursor = "n-v-c-i:block"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.undofile = true
+vim.opt.updatetime = 1000
 vim.cmd([[
-	set tabstop=4
-	set shiftwidth=4
-	set guicursor=n-v-c-i:block
 	set number relativenumber
 	tnoremap <Esc> <C-\><C-n>
 ]])
