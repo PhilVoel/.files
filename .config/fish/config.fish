@@ -4,7 +4,7 @@ end
 
 set -U fish_greeting
 set FZF_DEFAULT_COMMAND 'fd --type f'
-set PATH $PATH /opt/insomnia
+set PATH $PATH /opt/insomnia ~/.local/share/gem/ruby/3.0.0/bin
 
 alias cat=bat
 alias dir="dir --color=auto"
