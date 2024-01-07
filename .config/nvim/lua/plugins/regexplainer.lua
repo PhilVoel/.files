@@ -4,4 +4,5 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"MunifTanjim/nui.nvim",
 	},
+	config = true,
 }
