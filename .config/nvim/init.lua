@@ -28,6 +28,7 @@ vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
 vim.keymap.set({"n", "v"}, "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Rn", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>F", "gg=G``")
+vim.keymap.set("n", "<C-h>", "`")
 
 -- Install Lazy if it isn't already
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
