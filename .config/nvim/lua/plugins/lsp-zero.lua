@@ -57,7 +57,7 @@ return {
 		local cmp = require("cmp")
 		local cmp_select = {behavior = cmp.SelectBehavior.Select}
 		cmp.setup({
-			mapping = {
+			mapping = cmp.mapping.preset.insert({
 				["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
 				["<C-n>"] = cmp.mapping.confirm({select = true}),
@@ -67,7 +67,7 @@ return {
 				["<S-Tab>"] = vim.NIL,
 				["<CR>"] = vim.NIL,
 				["<C-p>"] = vim.NIL,
-			},
+			}),
 			sources = {
 				{name = "nvim_lsp"},
 				{name = "buffer"},
