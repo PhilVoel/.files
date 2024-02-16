@@ -23,6 +23,19 @@ return {
 					end
 				end
 			},
+			["<S-CR>"] = {
+				desc = "Open file and quit",
+				callback = function()
+					local type = require("oil").get_cursor_entry().type
+					if type == "link" then
+						type = require("oil").get_cursor_entry().meta.stat.type
+					end
+					if type == "file" then
+						require("oil.actions").open_external.callback()
+						vim.cmd(":qa")
+					end
+				end
+			},
 			["<C-c>"] = {
 				desc = "Quit",
 				callback = ":qa<CR>"
