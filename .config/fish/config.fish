@@ -17,6 +17,14 @@ alias lla="ls -la"
 alias ip="ip --color=auto"
 alias vdir="vdir --color=auto"
 
+function oil
+	if test -z "$argv"
+		set argv .
+	end
+	set SHELL "fish -c 'nvim -u ~/.config/nvim/oil_init.lua $argv'"
+	foot -c ~/.config/foot/oil.ini &; disown
+end
+
 function n
     set files (fd $argv -t f -u | fzf)
     if test -n "$files"

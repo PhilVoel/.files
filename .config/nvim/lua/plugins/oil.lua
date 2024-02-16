@@ -1,5 +1,6 @@
 return {
 	"stevearc/oil.nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 
 	config = function()
 		vim.keymap.set("n", "-", require("oil").open_float)
