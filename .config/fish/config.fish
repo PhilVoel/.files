@@ -3,9 +3,10 @@ if test "$TERM" = "linux"
 end
 
 set -U fish_greeting
-set FZF_DEFAULT_COMMAND 'fd --type f'
-set PATH $PATH /opt/insomnia ~/.local/share/gem/ruby/3.0.0/bin
-set DOTNET_CLI_TELEMETRY_OPTOUT 1
+set -x FZF_DEFAULT_COMMAND 'fd --type f'
+set -x ANDROID_HOME /opt/android-sdk/
+set -x PATH $PATH /opt/insomnia ~/.local/share/gem/ruby/3.0.0/bin $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/emulator $ANDROID_HOME/cmdline-tools/latest
+set -x DOTNET_CLI_TELEMETRY_OPTOUT 1
 
 alias cat=bat
 alias dir="dir --color=auto"
