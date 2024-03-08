@@ -13,6 +13,8 @@ vim.opt.timeout = false
 vim.cmd([[
 	set number relativenumber
 	tnoremap <Esc> <C-\><C-n>
+	autocmd FileType kotlin setlocal commentstring=//\ %s
+	filetype plugin indent on
 ]])
 
 -- Keymaps
