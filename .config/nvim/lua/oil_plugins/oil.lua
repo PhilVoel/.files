@@ -48,6 +48,7 @@ return {
 			["<C-l>"] = "actions.select_vsplit",
 			["<C-j>"] = "actions.select_split",
 			["g."] = "actions.toggle_hidden",
+			["gp"] = "actions.preview",
 		},
 		use_default_keymaps = false,
 		skip_confirm_for_simple_edits = true,
