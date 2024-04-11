@@ -17,8 +17,8 @@ alias la="ls -a"
 alias lla="ls -la"
 alias ip="ip --color=auto"
 alias vdir="vdir --color=auto"
-alias ghce="gh copilot explain"
-alias ghcs="gh copilot suggest"
+alias ghce="gh copilot explain --"
+alias ghcs="gh copilot suggest --"
 
 function oil
 	if test -z "$argv"
