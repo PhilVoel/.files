@@ -9,6 +9,8 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !gh auth git-credential
+[credential "https://gogs.spidermilk.ddnsfree.com"]
+	helper = store
 [init]
 	defaultBranch = master
 [push]
