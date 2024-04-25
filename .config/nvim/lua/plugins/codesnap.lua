@@ -7,7 +7,7 @@ return {
 			save_path = "~/Pictures/Codesnap",
 			watermark = "",
 		})
-		vim.keymap.set("v", "<leader>cs", ":CodeSnap<CR>")
-		vim.keymap.set("v", "<leader>cS", ":CodeSnapSave<CR>")
+		vim.keymap.set("v", "<leader>cs", ":CodeSnap<CR>", {desc = "Screenshot to clipboard"})
+		vim.keymap.set("v", "<leader>cS", ":CodeSnapSave<CR>", {desc = "Screenshot to file"})
 	end,
 }

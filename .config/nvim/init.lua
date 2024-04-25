@@ -8,29 +8,28 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.updatetime = 1000
-vim.opt.timeout = false
--- vim.opt.timeoutlen = 2500
 vim.cmd([[
 	set number relativenumber
 	tnoremap <Esc> <C-\><C-n>
 	autocmd FileType kotlin setlocal commentstring=//\ %s
+	autocmd FileType nix setlocal commentstring=#\ %s
 	filetype plugin indent on
 ]])
 
 -- Keymaps
-vim.keymap.set({"n", "v"}, "<Space>", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("x", "<leader>p", "\"_dP")
-vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
-vim.keymap.set({"n", "v"}, "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Rn", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>F", "gg=G``")
-vim.keymap.set("n", "<C-h>", "`")
+vim.keymap.set({"n", "v"}, "<Space>", "<Nop>", {noremap = true, silent = true})
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = "Move selected text up and auto indent"})
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc = "Move selected text down and auto indent"})
+vim.keymap.set("n", "n", "nzzzv", {desc = "Go to next search item, center on cursor"})
+vim.keymap.set("n", "N", "Nzzzv", {desc = "Go to previous search item, center on cursor"})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {desc = "Half page up, center on cursor"})
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {desc = "Half page down, center on cursor"})
+vim.keymap.set("x", "<leader>p", "\"_dP", {desc = "Paste and delete old text to null register"})
+vim.keymap.set({"n", "v"}, "<leader>d", "\"_d", {desc = "Delete to null register"})
+vim.keymap.set({"n", "v"}, "<leader>y", "\"+y", {desc = "Copy to system clipboard"})
+vim.keymap.set("n", "<leader>Rn", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {desc = "Rename every occurance of \"word\" in this file"})
+vim.keymap.set("n", "<leader>F", "gg=G``", {desc = "Auto indent whole file"})
+vim.keymap.set("n", "<C-h>", "`", {desc = "Jump to mark"})
 
 -- Install Lazy if it isn't already
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

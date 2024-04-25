@@ -24,15 +24,22 @@ return {
 
 		lsp.on_attach(function(_, bufnr)
 			local opts = {buffer = bufnr, remap = false}
+			function add_description(options, desc)
+				local merged_opts = {}
+				for key, value in pairs(options) do
+					merged_opts[key] = value
+				end
+				merged_opts["desc"] = desc
+				return merged_opts
+			end
 
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-			vim.keymap.set("n", "gj", vim.diagnostic.goto_next, opts)
-			vim.keymap.set("n", "gk", vim.diagnostic.goto_prev, opts)
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-			vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, add_description(opts, "Go to definition"))
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, add_description(opts, "Hover"))
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, add_description(opts, "Go to references"))
+			vim.keymap.set("n", "gj", vim.diagnostic.goto_next, add_description(opts, "Go to next diagnostic"))
+			vim.keymap.set("n", "gk", vim.diagnostic.goto_prev, add_description(opts, "Go to previous diagnostic"))
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, add_description(opts, "Open code actions"))
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, add_description(opts, "Rename symbol"))
 
 		end)
 

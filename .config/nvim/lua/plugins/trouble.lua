@@ -6,6 +6,6 @@ return {
 		trouble.setup({
 			position = "right",
 		})
-		vim.keymap.set("n", "gt", trouble.toggle)
+		vim.keymap.set("n", "gt", trouble.toggle, {desc = "Toggle Trouble diagnostics window"})
 	end,
 }

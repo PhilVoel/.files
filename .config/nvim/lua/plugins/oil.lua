@@ -3,8 +3,8 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 
 	config = function()
-		vim.keymap.set("n", "-", require("oil").open_float)
-		vim.keymap.set("n", "<leader>-", require("oil").open)
+		vim.keymap.set("n", "-", require("oil").open_float, {desc = "Open Oil in floating window"})
+		vim.keymap.set("n", "<leader>-", require("oil").open, {desc = "Open Oil"})
 
 		require("oil").setup{
 			keymaps = {

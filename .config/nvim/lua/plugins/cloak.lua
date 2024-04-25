@@ -14,7 +14,7 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<leader>ct", ":CloakToggle<CR>")
+		vim.keymap.set("n", "<leader>ct", ":CloakToggle<CR>", {desc = "Toggle Cloak"})
 	end,
 }
 
