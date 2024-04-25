@@ -3,8 +3,6 @@ return {
 	dependencies = {
 		-- LSP Support
 		"neovim/nvim-lspconfig",
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
 
 		-- Autocomplete
 		"hrsh7th/nvim-cmp",
@@ -24,7 +22,7 @@ return {
 
 		lsp.on_attach(function(_, bufnr)
 			local opts = {buffer = bufnr, remap = false}
-			function add_description(options, desc)
+			local function add_description(options, desc)
 				local merged_opts = {}
 				for key, value in pairs(options) do
 					merged_opts[key] = value
@@ -43,22 +41,26 @@ return {
 
 		end)
 
-		require("mason").setup({})
-		require("mason-lspconfig").setup({
-			handlers = {
-				lsp.default_setup,
-				["lua_ls"] = function()
-					require("lspconfig").lua_ls.setup({
-						settings = {
-							Lua = {
-								diagnostics = {
-									globals = {"vim"},
-								},
-							},
-						},
-					})
-				end,
-			}
+		local lspconfig = require("lspconfig")
+		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+		lspconfig.bashls.setup({
+			capabilities = lsp_capabilities,
+		})
+		lspconfig.lua_ls.setup({
+			capabilities = lsp_capabilities,
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = {"vim"},
+					},
+				},
+			},
+		})
+		lspconfig.rust_analyzer.setup({
+			capabilities = lsp_capabilities,
+		})
+		lspconfig.tsserver.setup({
+			capabilities = lsp_capabilities,
 		})
 
 		local cmp = require("cmp")
