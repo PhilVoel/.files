@@ -43,6 +43,7 @@ function c
 end
 
 oh-my-posh init fish --config "~/.oh-my-posh-theme.json" | source
+atuin init fish | source
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
