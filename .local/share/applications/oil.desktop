@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=env SHELL="fish -c 'nvim -u ~/.config/nvim/oil_init.lua ~'" foot -c /home/philipp/.config/foot/oil.ini
+Icon=/home/philipp/.local/share/pixmaps/oil.png
+Name=Oil
+Terminal=false
+Type=Application
+Version=1.4
